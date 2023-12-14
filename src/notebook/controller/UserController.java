@@ -40,6 +40,9 @@ public class UserController {
 
     public void deleteUser(String userId){
         repository.delete(Long.parseLong(userId));
-        System.out.println("User with Id "+ userId+" deleted");
+        System.out.println("User with Id "+ userId+" deleted ");
     }
+
+
+
 }
