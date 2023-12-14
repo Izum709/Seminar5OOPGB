@@ -13,11 +13,11 @@ public class UserController {
     public UserController(GBRepository repository) {
         this.repository = repository;
     }
-
+        //сохранение
     public void saveUser(User user) {
         repository.create(user);
     }
-
+    // поиск по id
     public User readUser(Long userId) throws Exception {
         List<User> users = repository.findAll();
         for (User user : users) {
@@ -33,8 +33,13 @@ public class UserController {
         update.setId(Long.parseLong(userId));
         repository.update(Long.parseLong(userId), update);
     }
-
+        // печать всех данных
     public List<User> readAll() {
         return repository.findAll();
+    }
+
+    public void deleteUser(String userId){
+        repository.delete(Long.parseLong(userId));
+        System.out.println("User with Id "+ userId+" deleted");
     }
 }
